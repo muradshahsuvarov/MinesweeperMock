@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.app.TimePickerDialog.OnTimeSetListener
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +15,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.toghrultodo.Entity.Todo
 import com.example.toghrultodo.Entity.TodoViewmodel
+import com.example.toghrultodo.MainActivity
 import com.example.toghrultodo.R
 import kotlinx.android.synthetic.main.fragment_add_todo.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -105,6 +106,14 @@ class AddTodoFragment : Fragment()  {
 
                 var todoItem = Todo(0, tName, tDetails, calendar)
                 todoViewModel.addTodo(todoItem)
+
+
+                Log.d("TOGHRUL", "Created at: " + Date().toString())
+                // Calling Broadcast receiver
+                (activity as MainActivity?)?.runBroadCastReceiver(calendar.timeInMillis)
+
+
+
                 Toast.makeText(context, "Todo is succesfully added!", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_addTodoFragment_to_nav_todo)
 

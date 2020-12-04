@@ -40,15 +40,7 @@ class ToDoListFragment : Fragment() {
             val adapter = ToDoAdapter()
             val recyclerView = root.findViewById<RecyclerView>(R.id.myRecyclerView)
             recyclerView.adapter = adapter
-            recyclerView.layoutManager = LinearLayoutManager(requireContext()) // ERROR HAPPENS HERE
-
-            if(recyclerView.layoutManager == null){
-                Toast.makeText(context, "BRAT NULL-di", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(context, "NOT NULL", Toast.LENGTH_SHORT).show()
-
-            }
-
+            recyclerView.layoutManager = LinearLayoutManager(requireContext()) // ERROR HAPPENS HERE, NULL POINTER EXCEPTION HAPPENS IN OnBinder method in ToDoListFragment
 
             todoViewModel = ViewModelProvider(this).get(TodoViewmodel::class.java)
             todoViewModel.readEverything.observe(viewLifecycleOwner, { todoItem ->

@@ -48,10 +48,13 @@ class ToDoAdapter : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
             var formattedDate : SimpleDateFormat = SimpleDateFormat(dateFormat)
             result =  formattedDate.format(cal.time)
 
+        if(result.isEmpty() == true){
+            return "dd/MM/yyyy hh:mm:ss"
+        }
+
                 return result
 
     }
-
      fun setData(todoList : List<Todo>){
         this.todoItemLits = todoList
         notifyDataSetChanged()
