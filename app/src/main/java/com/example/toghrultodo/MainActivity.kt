@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var context : Context
     lateinit var alarmManager : AlarmManager
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -50,7 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_todo, R.id.nav_slideshow
+                R.id.nav_home, R.id.nav_todo, R.id.nav_slideshow, R.id.nav_gps
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1011928050405",
+    "project_id": "avid-airway-297706",
+    "storage_bucket": "avid-airway-297706.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011928050405:android:e8009bfcc2746fa370c20c",
+        "android_client_info": {
+          "package_name": "com.example.toghrultodo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011928050405-27qvufj009vtcg20p3c668gh4v45skka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA20QbrNRyBcO7PdoEcrhPcm2lbwlWpmhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011928050405-27qvufj009vtcg20p3c668gh4v45skka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
