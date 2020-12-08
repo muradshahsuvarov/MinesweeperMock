@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_nav_todo_to_addTodoFragment"
             app:destination="@id/addTodoFragment" />
+        <action
+            android:id="@+id/action_nav_todo_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
 
     <fragment
@@ -41,5 +44,17 @@
         <action
             android:id="@+id/action_addTodoFragment_to_nav_todo"
             app:destination="@id/nav_todo" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.toghrultodo.Details.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_nav_todo"
+            app:destination="@id/nav_todo" />
+        <argument
+            android:name="currentToDo"
+            app:argType="com.example.toghrultodo.Entity.Todo" />
     </fragment>
 </navigation>

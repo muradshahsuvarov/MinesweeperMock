@@ -1,12 +1,16 @@
 package com.example.toghrultodo.List
 
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.ListFragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toghrultodo.Entity.Todo
 import com.example.toghrultodo.R
+import com.example.toghrultodo.ToDoListFragmentDirections
 import kotlinx.android.synthetic.main.fragment_add_todo.view.*
 import kotlinx.android.synthetic.main.todo_item.view.*
 import java.text.SimpleDateFormat
@@ -30,8 +34,12 @@ class ToDoAdapter : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
             holder.itemView.CapitalLetter.text = todoItem.Name.take(1).capitalize().toString()
             holder.itemView.listNameTextView.text = todoItem.Name.toString()
             holder.itemView.listDetailsTextView.text = GetConvertMsToDate(todoItem.Date.timeInMillis)
-        }
 
+            holder.itemView.itemRowLayout.setOnClickListener {
+                val action = ToDoListFragmentDirections.actionNavTodoToDetailsFragment(todoItem)
+                holder.itemView.findNavController().navigate(action)
+            }
+        }
     }
 
     override fun getItemCount(): Int {

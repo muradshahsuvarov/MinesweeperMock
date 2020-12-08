@@ -98,7 +98,7 @@ class AddTodoFragment : Fragment()  {
                 tmpDate = myTmpCalDate
 
                 val calendar = Calendar.getInstance()
-                Hour?.let { it1 -> calendar.set(Calendar.HOUR, it1) };
+                Hour?.let { it1 -> calendar.set(Calendar.HOUR_OF_DAY, it1) };
                 Minute?.let { it1 -> calendar.set(Calendar.MINUTE, it1) };
                 calendar.set(Calendar.YEAR, Year!!)
                 calendar.set(Calendar.MONTH, Month!!)
@@ -178,13 +178,17 @@ class AddTodoFragment : Fragment()  {
         val timePickerDialog = TimePickerDialog(
             context,
             OnTimeSetListener { view, hourOfDay, minute ->
-                myTime = "$hourOfDay:$minute"
+                if(hourOfDay < 12){
+                    myTime = "$hourOfDay:$minute AM"
+                }else if(hourOfDay > 12){
+                    myTime = "$hourOfDay:$minute PM"
+                }
                 Hour = hourOfDay
                 Minute = minute
             },
             Hour!!,
             Minute!!,
-            false
+            true
         )
         timePickerDialog.show()
 
